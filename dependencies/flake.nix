@@ -32,7 +32,7 @@
 
           echo -e "$BLUE"
           
-          figlet "AI MAHER"
+          figlet "ICS 202"
 
           echo -e "$CYAN hello $(whoami)...                   $NC"
           echo -e "$BLUE ──────────────────────────────────────────────────────"
@@ -46,7 +46,7 @@
           echo ""
           echo ""
           echo -e "$BLUE ──────────────────────────────────────────────────────"
-          echo -e  "       made by: 𝔐𝔞𝔥𝔢𝔯 𝔇𝔞𝔤𝔢𝔰𝔱𝔞𝔫𝔦             $NC"
+          echo -e  "       made by: 𝔐𝔞𝔥𝔢𝔯 𝔇𝔞𝔤𝔢𝔰𝔱𝔞𝔫𝔦 and mansour mansour   $NC"
           echo ""
           echo ""
         '';
