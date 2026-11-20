@@ -1,2 +1,2 @@
-# swe206
-this repo is for swe 206 project.
+# ics202
+this repo is for ics202 project.
