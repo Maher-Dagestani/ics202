@@ -47,8 +47,9 @@
           echo ""
           echo -e "$BLUE ──────────────────────────────────────────────────────"
           echo -e  "       made by: 𝔐𝔞𝔥𝔢𝔯 𝔇𝔞𝔤𝔢𝔰𝔱𝔞𝔫𝔦 and mansour mansour   $NC"
-          echo ""
-          echo ""
+          echo "_____________________________________________________"
+          echo -e " use: $BLUE mvn compile $NC to compile code "
+	  echo -e  "and use $BLUE mvn exec:java $NC to run code "
         '';
       };
 

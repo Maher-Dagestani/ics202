@@ -24,7 +24,7 @@ After install, restart your termenal
 From the project root:
 
 ```bash
-cd shell
+cd dependencies
 nix develop
 ```
 
