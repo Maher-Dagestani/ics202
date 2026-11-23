@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 public class FileReader {
   private File file;
-  private Stack<String> tokens;
+  private Queue<String> tokens;
 
   public FileReader(String filename) {
     this.file = new File(filename);
-    this.tokens = new Stack<>();
+    this.tokens = new Queue<>();
 
     try (Scanner reader = new Scanner(this.file)) {
       while (reader.hasNextLine()) {
@@ -25,16 +25,18 @@ public class FileReader {
         int end = line.indexOf(',');
         while (end != -1) {
           String token = line.substring(st, end);
-          tokens.push(token.strip());
+          tokens.enqueue(token.strip());
           st = end + 1;
           end = line.indexOf(',', st);
         }
+        tokens.enqueue(line.substring(st, line.length()).strip());
+
       }
     } catch (FileNotFoundException e) {
       System.out.printf("File (%s) not found.\n", filename);
     }
   }
 
-  public String next() { return tokens.pop(); }
+  public String next() { return tokens.dequeue(); }
   public boolean hasNext() { return !tokens.isEmpty(); }
 }
