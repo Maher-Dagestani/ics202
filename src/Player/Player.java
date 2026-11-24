@@ -8,12 +8,12 @@ public class Player {
   private int moves;
   private String name;
   private Inventory inventory;
-  private Queue missions;
+  private Queue<Mission> missions;
 
   public Player(String name, Room startRoom, Queue missions, int moves) {
     this.name = name;
     this.currentRoom = startRoom;
-    this.missions = missions;
+    this.missions = new Queue<>();
     this.moves = moves;
     this.inventory = new Inventory();
   }
