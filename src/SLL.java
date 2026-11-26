@@ -179,6 +179,7 @@
 		/* -------- Task 1: A-------- */
     public T get(int idx) {
       if (isEmpty() || idx < 0 || idx > size()) return null;
+      if (idx == size() - 1) return tail.info;
 
       int i = 0;
       SLLNode<T> temp = head;

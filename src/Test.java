@@ -21,5 +21,31 @@ public class Test {
 			throw new AssertionError("takeItem error");
 		}
 
+		Graph c = new Graph("C");
+		Graph d = new Graph("D");
+		c.addOpenRoom(d);
+		d.addOpenRoom(c);
+		CurrentRoom cdRoom = new CurrentRoom(c);
+		Item doorKey = new Item("dk1", "door key");
+
+		cdRoom.lockDoor(d, doorKey);
+		if(c.getOpenDoors().find(d) || d.getOpenDoors().find(c)){
+			throw new AssertionError("lock error: door still open");
+		}
+		if(c.getClosedDoors().size() != 1 || d.getClosedDoors().size() != 1){
+			throw new AssertionError("lock error: door not closed on both rooms");
+		}
+
+		SLL<Item> inventory = new SLL<Item>();
+		inventory.addToTail(doorKey);
+		cdRoom.openDoor(c.getClosedDoors().get(0), inventory);
+		if(!c.getOpenDoors().find(d) || !d.getOpenDoors().find(c)){
+			throw new AssertionError("unlock error: door not open on both rooms");
+		}
+		if(!c.getClosedDoors().isEmpty() || !d.getClosedDoors().isEmpty()){
+			throw new AssertionError("unlock error: door still closed on both rooms");
+		}
+		cdRoom.move(d);
+		System.out.println("All tests passed");
 	}
 }
