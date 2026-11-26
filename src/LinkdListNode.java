@@ -8,7 +8,7 @@ public class LinkdListNode<T>{
 	public LinkdListNode(T value){
 		this.value = value;
 	}
-	public void setNext(LinkdListNode<T>o next){
+	public void setNext(LinkdListNode<T> next){
 		this.next = next;
 	}
 	public T getValue(){
