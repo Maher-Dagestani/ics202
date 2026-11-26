@@ -10,9 +10,13 @@ public ClosedDoor(Graph room, Item key){
 }
 
 
+public Graph getRoom(){
+	return this.room;
+}
 
 
 
+/*
 public Graph openDoor(SLL<Item> inventory){
 	for(Item i : inventory){
 		if(i.isEqual(this.key)){
@@ -21,6 +25,7 @@ public Graph openDoor(SLL<Item> inventory){
 	}
 	return null;
 }
+*/
 
 
 @Override
