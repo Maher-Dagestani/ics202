@@ -15,16 +15,16 @@ public ClosedDoor(Graph room, Item key){
 
 public Graph openDoor(SLL<Item> inventory){
 	for(Item i : inventory){
-		if(i.isEaual(this.key)){
+		if(i.isEqual(this.key)){
 			return this.room;
 		}
 	}
-	throw new RuntimeError("You do not have the key to open this door");
+	return null;
 }
 
 
 @Override
-Public String toString(){
+public String toString(){
 	return this.room.toString() + " needs key: " + key.toString();
 }
 
