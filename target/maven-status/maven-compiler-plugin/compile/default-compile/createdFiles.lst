@@ -8,7 +8,6 @@ DS/SLLNode.class
 objects/Room.class
 Player/Inventory.class
 DS/Pair.class
-ClosedDoor.class
 Main.class
 DS/Hashmap.class
 SLL.class

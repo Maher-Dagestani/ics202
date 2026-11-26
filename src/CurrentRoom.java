@@ -98,7 +98,7 @@ public void move(Graph room){
 }
 
 
-/*
+
 public void openDoor(ClosedDoor room, SLL<Item> inventory){
 	if(currentRoom.getClosedDoors().find(room)){
 		currentRoom.openDoor(room, inventory);
@@ -107,22 +107,23 @@ public void openDoor(ClosedDoor room, SLL<Item> inventory){
 	throw new RuntimeException("ROOM DOES NOT EXIST");
 
 }
-*/
+
+
 public SLL<Item> seeItemsInRoom(){
 	return currentRoom.seeItemsInRoom();
-	}
+}
 
-	public void addItemToRoom(Item item){
+public void addItemToRoom(Item item){
 		currentRoom.addItem(item);
-	}
+}
 
-	public void takeItem(Item item){
-		currentRoom.takeItem(item);
-	}
+public void takeItem(Item item){
+	currentRoom.takeItem(item);
+}
 
-	public void lockDoor(Graph room, Item key){
+public void lockDoor(Graph room, Item key){
 		currentRoom.closeDoor(room, key);
-	}
+}
 
 
 }
