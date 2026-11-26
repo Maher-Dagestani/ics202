@@ -16,16 +16,15 @@ public Graph getRoom(){
 
 
 
-/*
 public Graph openDoor(SLL<Item> inventory){
-	for(Item i : inventory){
-		if(i.isEqual(this.key)){
+	for(int i = 0; i < inventory.size(); i++){
+		Item item = inventory.get(i);
+		if(item != null && item.isEqual(this.key)){
 			return this.room;
 		}
 	}
 	return null;
 }
-*/
 
 
 @Override

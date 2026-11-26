@@ -36,9 +36,11 @@ public class Graph {
 	public void removeOpenDoor(Graph room){
 		this.openDoors.delete(room);
 	}
-        /*
+
         public void removeClosedDoor(Graph room){
-                for(ClosedDoor i : closedDoors){
+		ClosedDoor i;
+                for(int iterator = 0; iterator < closedDoors.size(); iterator++){
+			i = closedDoors.get(iterator);
 			if(i.getRoom() == room){
 				closedDoors.delete(i);
 				return;
@@ -47,24 +49,20 @@ public class Graph {
 		throw new RuntimeException("this room can't be removed");
         }
 
-
 	public void openDoor(ClosedDoor closedDoor, SLL<Item> inventory){
-		for(Item i : inventory){
-			Graph openDoor = closedDoor.openDoor(key);
-			if(openDoor != null){
-				this.addOpenRoom(openDoor);
-				this.closedDoors.delete(closedDoor);
-				openDoor.addOpenRoom(this);
-				openDoor.removeClosedDoor(this);
-				return;
-			}
+		Graph openDoor = closedDoor.openDoor(inventory);
+		if(openDoor != null){
+			this.addOpenRoom(openDoor);
+			this.closedDoors.delete(closedDoor);
+			openDoor.addOpenRoom(this);
+			openDoor.removeClosedDoor(this);
+			return;
 		}
 		throw new RuntimeException("door can't be opened!");
 	}
-        */
 
 
-	//TODO: finish
+
 	public void closeDoor(Graph room, Item key){
 		if(openDoors.find(room)){
 			openDoors.delete(room);
@@ -79,7 +77,6 @@ public class Graph {
 			throw new RuntimeException("door can't be closed!");
 		}
 	}
-
 
 
 	@Override
