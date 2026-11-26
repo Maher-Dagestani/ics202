@@ -2,7 +2,7 @@ public class Graph {
 	private SLL<Graph> openDoors = new SLL<Graph>();
 	private SLL<ClosedDoor> closedDoors = new SLL<ClosedDoor>();
 	private String roomName;
-	private SLL<Item> items;
+	private SLL<Item> items = new SLL<Item>();
 
 
 	public Graph(String roomName){
@@ -23,8 +23,9 @@ public class Graph {
 	public SLL<Item> seeItemsInRoom(){
 		return this.items;
 	}
-	public takeItem(Item item){
-		if(items.find(item){
+	public void takeItem(Item item){
+		if(items.find(item)){
+			items.delete(item);
 			return;
 		}
 		throw new RuntimeException("this item does not exist in this room!");
@@ -35,20 +36,32 @@ public class Graph {
 	public void removeOpenDoor(Graph room){
 		this.openDoors.delete(room);
 	}
+        /*
         public void removeClosedDoor(Graph room){
-                this.closedDoors.delete(room);
+                for(ClosedDoor i : closedDoors){
+			if(i.getRoom() == room){
+				closedDoors.delete(i);
+				return;
+			}
+		}
+		throw new RuntimeException("this room can't be removed");
         }
 
-	public void openDoorClosedDoor closedDoor, (SLL<Item> inventory){
-		for(i:inventory){
+
+	public void openDoor(ClosedDoor closedDoor, SLL<Item> inventory){
+		for(Item i : inventory){
 			Graph openDoor = closedDoor.openDoor(key);
 			if(openDoor != null){
 				this.addOpenRoom(openDoor);
 				this.closedDoors.delete(closedDoor);
+				openDoor.addOpenRoom(this);
+				openDoor.removeClosedDoor(this);
+				return;
 			}
 		}
-		throw new RuntimeError ("door cant be opened!");
+		throw new RuntimeException("door can't be opened!");
 	}
+        */
 
 
 	//TODO: finish
@@ -59,7 +72,13 @@ public class Graph {
 			closedDoors.addToTail(closedDoor1);
 
 			ClosedDoor closedDoor2 = new ClosedDoor(this, key);
-			
+			room.addClosedRoom(closedDoor2);
+			room.removeOpenDoor(this);
+		}
+		else{
+			throw new RuntimeException("door can't be closed!");
+		}
+	}
 
 
 

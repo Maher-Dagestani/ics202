@@ -1,3 +1,5 @@
+import objects.Room;
+
 public class Player {
   private Room currentRoom;
   private int moves;

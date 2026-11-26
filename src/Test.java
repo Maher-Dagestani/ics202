@@ -1,27 +1,25 @@
-public class test {
+public class Test {
 	public static void main(String[] args) {
 
-
-
-		//LinkdList testing
-		LinkdList<String> list = new LinkdList<>();
-		list.addItem("A");
-		String[] test = list.listItems();
-		String[] test2 = new Sting[1]
-		test2.add("A")
-		if(test2.equals(test) == false){
-			throw new AssertionError("LinkdList error");
-		}
-		list.delete("A");
-		String[] test3 = new String[0];
-                if(test3.equals(test) == false){
-			throw new AssertionError("LinkdList error");
-		}
-
-
-
-
 		//add more tests here:
+		Graph a = new Graph("A");
+		Graph b = new Graph("B");
+		a.addOpenRoom(b);
+		b.addOpenRoom(a);
+		CurrentRoom room = new CurrentRoom(a);
+		room.move(b);
+		if(room.seeOpenRooms().find(a) == false){
+			throw new AssertionError("move error");
+		}
+		Item key = new Item("k1", "key");
+		room.addItemToRoom(key);
+		if(room.seeItemsInRoom().find(key) == false){
+			throw new AssertionError("addItemToRoom error");
+		}
+		room.takeItem(key);
+		if(room.seeItemsInRoom().find(key)){
+			throw new AssertionError("takeItem error");
+		}
 
 	}
 }

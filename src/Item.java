@@ -21,7 +21,7 @@ public class Item {
   }
 
   @Override
-  punlic String toString(){
+  public String toString(){
     return this.id + ":" +  this.name;
   }
 }
