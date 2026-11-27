@@ -9,7 +9,7 @@ to use my part of code, all u need is to use only this class (hopefully)
 this class tracks the player current room.
 
 so functions you do have are:
-
+seeRoo() that returns a Graph that is the players current room
 seeOpenRooms() that return an SLL of class Graph
 seeClosedRooms() that return an SLL of class ClosedDoor
 
@@ -77,7 +77,9 @@ public CurrentRoom(Graph room){
 }
 
 
-
+public Graph SeeRoom(){
+	return this.currentRoom;
+]
 
 public SLL<Graph> seeOpenRooms(){
 	return this.currentRoom.getOpenDoors();
