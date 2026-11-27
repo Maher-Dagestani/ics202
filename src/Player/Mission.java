@@ -13,4 +13,8 @@ public class Mission {
     this.id = id;
   }
 
+  public String getId() { return this.id; }
+
+  public boolean isEqual(Mission other) { return this.id.equals(other.getId()); }
+
 }

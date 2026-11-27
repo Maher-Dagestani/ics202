@@ -7,6 +7,10 @@ public class Item {
     this.name = name;
   }
 
+  public Item(String id){
+    this(id, id);
+  }
+
   public String getId(){
     return this.id;
   }
@@ -27,6 +31,10 @@ public class Item {
 
   @Override
   public String toString(){
-    return this.id + ":" +  this.name;
+    return this.id;
+  }
+
+  public String getName(){
+    return this.name;
   }
 }
