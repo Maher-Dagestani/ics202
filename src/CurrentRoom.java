@@ -79,7 +79,7 @@ public CurrentRoom(Graph room){
 
 public Graph SeeRoom(){
 	return this.currentRoom;
-]
+}
 
 public SLL<Graph> seeOpenRooms(){
 	return this.currentRoom.getOpenDoors();
