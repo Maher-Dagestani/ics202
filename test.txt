@@ -1,0 +1,7 @@
+ROOM, Exit
+ROOM, Entrance
+ROOM, Hall
+CONNECT, Entrance, Hall
+START, Entrance
+MOVES, 5
+EXIT, Exit

@@ -15,6 +15,6 @@ public class Mission {
 
   public String getId() { return this.id; }
 
-  public boolean isEqual(Mission other) { return this.id.equals(other.getId()); }
+  public boolean isEqual(Mission other) { return other != null && this.type == other.type && this.id.equals(other.getId()); }
 
 }

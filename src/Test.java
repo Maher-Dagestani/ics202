@@ -1,3 +1,4 @@
+import Player.Mission;
 public class Test {
 	public static void main(String[] args) {
 
@@ -46,6 +47,18 @@ public class Test {
 			throw new AssertionError("unlock error: door still closed on both rooms");
 		}
 		cdRoom.move(d);
+		Starter starter = new Starter();
+		Data data = starter.start("test.txt");
+		if (data == null || data.getMoves() != 5) {
+			throw new AssertionError("starter data error");
+		}
+		if (!data.getCurrentroom().seeOpenRooms().get(0).toString().equals("Hall")) {
+			throw new AssertionError("connect error");
+		}
+		Mission exitMission = data.getMissions().dequeue();
+		if (exitMission == null || !exitMission.getId().equals("Exit")) {
+			throw new AssertionError("exit mission error");
+		}
 		System.out.println("All tests passed");
 	}
 }
