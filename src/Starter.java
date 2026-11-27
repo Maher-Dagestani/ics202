@@ -30,20 +30,22 @@ try{
 
 		else if(token.equals("CONNECT")){
 			Item lock = null;
-			Graph room1 = findRoom(f.next());
-			Graph room2 = findRoom(f.next());
+			String room1Name = f.next();
+			String room2Name = f.next();
+			Graph room1 = findRoom(room1Name);
+			Graph room2 = findRoom(room2Name);
 			if(tokenChecker(f.peek()) == false){
 				lock = new Item(f.next());
 			}
 
 			//check both rooms acually exist
 			if(room1 == null){
-				throw new RuntimeException("in line " + line + "you entered the room " + room1.toString() + "which does not exist");
+				throw new RuntimeException("in line " + line + "you entered the room " + room1Name + "which does not exist");
 			}
 
-			if(room1 == null){
-                                throw new RuntimeException("in line " + line + "you entered the room " + room1.toString() + "which does not exist");
-                        }
+			if(room2 == null){
+				throw new RuntimeException("in line " + line + "you entered the room " + room2Name + "which does not exist");
+			}
 
 
 			//in case path is not locked
@@ -70,7 +72,7 @@ try{
 		}
 		else if(token.equals("MISSION")){
 			String typeToken = f.next();
-			if(typeToken != "COLLECT" && typeToken != "REACH"){
+			if(!"COLLECT".equals(typeToken) && !"REACH".equals(typeToken)){
 				throw new RuntimeException("error on line " + line + ": mission must be COLLECT or REACH only, you entered: " + typeToken);
 			}
 
