@@ -39,4 +39,5 @@ public class FileReader {
 
   public String next() { return tokens.dequeue(); }
   public boolean hasNext() { return !tokens.isEmpty(); }
+  public String peek() {return tokens.peek(); }
 }

@@ -6,8 +6,10 @@ Inventory.class
 Item.class
 DS/SLLNode.class
 objects/Room.class
+Data.class
 Player/Inventory.class
 DS/Pair.class
+ClosedDoor.class
 Main.class
 DS/Hashmap.class
 SLL.class
@@ -18,6 +20,7 @@ CurrentRoom.class
 FileReader.class
 SLL$SLLNode.class
 DS/Stack.class
+Starter.class
 Player.class
 DS/Stack$Node.class
 DS/Queue.class
