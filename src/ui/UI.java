@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 package ui;
 
 import utils.KeyHandler;
@@ -36,4 +34,3 @@ public class UI {
     this.terminal.close();
   }
 }
->>>>>>> mansour-work
