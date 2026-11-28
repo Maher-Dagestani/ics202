@@ -49,6 +49,7 @@ public class FileHandler {
   }
 
   public String next() { return tokens.dequeue(); }
+  public String peek() { return tokens.peek(); }
   public boolean hasNext() { return !tokens.isEmpty(); }
   public boolean isFileEmpty() { return file.length() == 0; }
   public void write(String text, boolean append) {

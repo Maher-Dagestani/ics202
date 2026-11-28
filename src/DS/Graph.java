@@ -1,4 +1,9 @@
-public class Graph {
+package DS;
+
+import objects.ClosedDoor;
+import objects.Item;
+
+public class Graph implements Comparable<Graph> {
 	private SLL<Graph> openDoors = new SLL<Graph>();
 	private SLL<ClosedDoor> closedDoors = new SLL<ClosedDoor>();
 	private String roomName;
@@ -78,6 +83,11 @@ public class Graph {
 		}
 	}
 
+
+	@Override
+	public int compareTo(Graph other){
+		return this.roomName.compareTo(other.roomName);
+	}
 
 	@Override
 	public String toString(){

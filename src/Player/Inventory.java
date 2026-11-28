@@ -19,6 +19,8 @@ public class Inventory {
     return items.delete(item);
   }
 
+  public SLL<Item> getItems() { return items; }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

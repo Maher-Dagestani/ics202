@@ -1,4 +1,9 @@
-public class ClosedDoor{
+package objects;
+
+import DS.Graph;
+import DS.SLL;
+
+public class ClosedDoor implements Comparable<ClosedDoor>{
 
 private Graph room;
 private Item key;
@@ -24,6 +29,12 @@ public Graph openDoor(SLL<Item> inventory){
 		}
 	}
 	return null;
+}
+
+
+@Override
+public int compareTo(ClosedDoor other){
+	return this.room.toString().compareTo(other.room.toString());
 }
 
 

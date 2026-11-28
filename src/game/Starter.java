@@ -1,4 +1,13 @@
+package game;
+
+import DS.Graph;
+import DS.Queue;
+import DS.SLL;
 import Player.Mission;
+import objects.ClosedDoor;
+import objects.CurrentRoom;
+import objects.Item;
+import utils.FileHandler;
 
 public class Starter{
 
@@ -13,7 +22,7 @@ public class Starter{
 
 public Data start(String fileName){
 try{
-	FileReader f = new FileReader(fileName);
+	FileHandler f = new FileHandler(fileName);
 	while (f.hasNext()) {
 		line ++;
 		//this one gets the first word (ROOM, CONNECT, ITEM, MISSION, START, MOVES, EXIT)

@@ -1,6 +1,10 @@
-import Player.Mission;
+package game;
 
-class Data{
+import DS.Queue;
+import Player.Mission;
+import objects.CurrentRoom;
+
+public class Data{
 	CurrentRoom currentroom;
 	Queue<Mission> missions;
 	int moves;

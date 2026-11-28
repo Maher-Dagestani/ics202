@@ -158,13 +158,14 @@ public class SLL<T extends Comparable<T>> {
 
 
   /* -------- Task 1: A-------- */
-  public SLLNode<T> get(int idx) {
-    if (isEmpty() || idx < 0 || idx > size()) return null;
+  public T get(int idx) {
+    if (isEmpty() || idx < 0 || idx >= size()) return null;
+    if (idx == size() - 1) return tail.info;
 
     int i = 0;
     SLLNode<T> temp = head;
     while (temp.next != null) {
-      if (i == idx) return temp;
+      if (i == idx) return temp.info;
       temp = temp.next;
       i++;
     }

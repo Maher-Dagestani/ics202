@@ -17,6 +17,13 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.jline</groupId>
+            <artifactId>jline-terminal</artifactId>
+            <version>3.27.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jline-terminal-3.27.1.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
@@ -44,6 +51,10 @@
                 <version>3.1.0</version>
                 <configuration>
                     <mainClass>${exec.mainClass}</mainClass>
+                    <!-- system-scoped deps are not added to exec's classpath automatically -->
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${project.basedir}/lib/jline-terminal-3.27.1.jar</additionalClasspathElement>
+                    </additionalClasspathElements>
                 </configuration>
             </plugin>
 

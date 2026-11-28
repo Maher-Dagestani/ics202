@@ -1,29 +1,31 @@
 package Player;
 
-import objects.Room;
 import DS.Queue;
+import objects.CurrentRoom;
+import objects.Item;
 
 public class Player {
-  private Room currentRoom;
+  private CurrentRoom currentRoom;
   private int moves;
   private String name;
   private Inventory inventory;
   private Queue<Mission> missions;
 
-  public Player(String name, Room startRoom, Queue missions, int moves) {
+  public Player(String name, CurrentRoom currentRoom, Queue missions, int moves) {
     this.name = name;
-    this.currentRoom = startRoom;
+    this.currentRoom = currentRoom;
     this.missions = new Queue<>();
     this.moves = moves;
     this.inventory = new Inventory();
   }
   
-  public Room getCurrentRoom() { return currentRoom; }
+  public CurrentRoom getCurrentRoom() { return currentRoom; }
   public Inventory getInventory() { return inventory; }
   public Queue getMissions() { return missions; }
+  public void collectItem(Item item) { inventory.add(item); }
 
-  public void move(Room room) {
-
-  }
+  // public void move(Room room) {
+  //
+  // }
 
 }
