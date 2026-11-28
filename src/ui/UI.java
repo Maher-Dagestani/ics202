@@ -3,45 +3,34 @@ package ui;
 import utils.KeyHandler;
 import utils.Term;
 import utils.KEYS;
+import Player.Player;
 
 public class UI {
   private Term terminal;
   private KeyHandler kh;
+  private Player player;
 
-  public UI() throws Exception {
+  public UI(Player player) throws Exception {
+    this.player = player;
     this.terminal = new Term();
+    this.terminal.enterAlt();
     this.kh = new KeyHandler(terminal.getReader());
+    this.terminal.setCursorVisiblity(false);
   }
   public void loop() throws Exception {
-    Color winColor = new Color("#ffffff", "#1e1e1e");
-    Window win = new Window(0, 0, terminal.getWidth(), terminal.getHeight(), winColor);
-    StringBuilder text = new StringBuilder();
-    int k;
-    while ((k = kh.getKey()) != 'q') {
-      KEYS key = KEYS.fromCode(k);
-
+    Color winColor = new Color("#1e1e1e", "#2d333d");
+    Rect rect = new Rect(0, 0, terminal.getWidth(), terminal.getHeight());
+    Window win = new Window(rect , winColor);
+    InventoryPanel sp = new InventoryPanel(this.terminal, this.player);
+    int k = -1;
+    while (k != 'q') {
       win.drawBg();
-      win.print(text.toString(), 0, 0);
       win.refresh();
-      if (key == null) {
-        text.append((char) k);               // plain character
-      } else {
-        switch (key) {
-          case BACKSPACE:
-            if (text.length() > 0) text.deleteCharAt(text.length() - 1);
-            break;
-          case ENTER:
-            text.append('\n');
-            break;
-          case TAB:
-            text.append('\t');
-            break;
-          default:
-            break;                       // arrows and others: ignored for now
-        }
-      }
+      sp.draw();
 
+      k = kh.getKey();
+      sp.update(k);
     }
-
+    this.terminal.close();
   }
 }

@@ -3,7 +3,7 @@ package utils;
 import java.io.IOException;
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
-
+import org.jline.utils.InfoCmp;
 import org.jline.utils.NonBlockingReader;
 
 
@@ -20,6 +20,38 @@ public class Term {
   public NonBlockingReader getReader() { return this.reader; }
   public int getWidth() { return this.terminal.getWidth(); }
   public int getHeight() { return this.terminal.getHeight(); }
+  public void enterAlt() { 
+    this.terminal.puts(InfoCmp.Capability.enter_ca_mode);
+    this.terminal.flush();
+  }
+
+  public void exitAlt() { 
+    this.terminal.puts(InfoCmp.Capability.exit_ca_mode);
+    this.terminal.flush();
+  }
+
+  public void setCursor(int n) {
+    terminal.writer().print("\u001b[" + n + " q");
+    terminal.flush();
+  }
+
+  public void setCursorPosition(int x, int y) {
+    terminal.puts(InfoCmp.Capability.cursor_address, y, x);
+    terminal.flush();
+  }
+
+  public void setCursorVisiblity(boolean x) {
+    if (x)
+      terminal.puts(InfoCmp.Capability.cursor_visible);
+    else
+      terminal.puts(InfoCmp.Capability.cursor_invisible);
+    terminal.flush();
+  }
+
+  public void close() {
+    exitAlt();
+    setCursorVisiblity(true);
+  }
 
   //
   // public static void main(String[] args) throws Exception {
